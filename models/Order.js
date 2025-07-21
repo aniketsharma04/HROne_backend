@@ -34,8 +34,7 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Customer name is required'],
     trim: true,
-    maxlength: [100, 'Customer name cannot exceed 100 characters'],
-    index: true
+    maxlength: [100, 'Customer name cannot exceed 100 characters']
   },
   products: {
     type: [orderItemSchema],
@@ -55,13 +54,11 @@ const orderSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled'],
-    default: 'pending',
-    index: true
+    default: 'pending'
   },
   order_date: {
     type: Date,
-    default: Date.now,
-    index: true
+    default: Date.now
   }
 }, {
   timestamps: true,
